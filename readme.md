@@ -32,6 +32,8 @@ At this point, the app will be quite empty. No servers, no DNS records, can't co
 
 So, run `04-start-pxcnode.sh 1`. Note the `1` there, it's important -- you're starting the first node. You can check out consul or the application and `F5` bomb your keyboard to watch for it to come up. It's usually pretty quick though, so you might miss it.
 
+What's important to note here is that this command actually starts 2 containers. The first is a (mostly) generic PXC container. This container will run a PXC instance, or attempt to join one if it can be found at a specific domain name (`pxc.service.consul`). A second container is started which will monitor the first and register it as a service with the consul cluster. This is a nice way of desinging so that the PXC container doesn't even need to know about the service discovery system, making it less coupled.
+
 Now for the real fun! `04-start-pxcnode.sh 2` -- that'll start a second node, which will discover the first node (thanks consul!) and join the cluster. Then, as it automatically grabs all the latest data, once it's done the health check will go green (consul again) and the app will start seeing it as a viable, randomly discovered host for mysql connections.
 
 You can continue adding nodes as you wish and watch as they all come up and spread the read/write load further.
