@@ -1,4 +1,4 @@
-# Percona Xtradb Cluster & Consul Service Discovery
+# Percona XtraDB Cluster & Consul Demo
 
 This example will:
 
@@ -14,7 +14,7 @@ https://www.consul.io/
 
 An opinonated distributed application for service discover, health checks, and K/V store. We're going to use it to coordinate discovery or peer Percona nodes as well as locating random targets within the percona cluster for the application.
 
-## PXC (Percona Xtradb Cluster)
+## PXC (Percona XtraDB Cluster)
 
 https://www.percona.com/software/mysql-database/percona-xtradb-cluster
 
